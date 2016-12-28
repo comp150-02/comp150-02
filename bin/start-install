@@ -13,7 +13,7 @@ pip install virtualenv
 pip install virtualenvwrapper
 mkdir ~/Envs
 export WORKON_HOME=~/Envs
-source /usr/local/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper.sh
 
 # Make a virtualenv for this class
 mkvirtualenv deep-venv
