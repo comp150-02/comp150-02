@@ -1,36 +1,39 @@
 #!/bin/sh
-
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install emacs g++ git zsh tmux mlocate
-sudo apt-get install -y build-essential cmake git pkg-config
-sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-serial-dev protobuf-compiler
-sudo apt-get install -y libatlas-base-dev
-sudo apt-get install -y --no-install-recommends libboost-all-dev
-sudo apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev
-
-# (Python general)
-sudo apt-get install -y python-pip
-
-# (Python 2.7 development files)
-sudo apt-get install -y python-dev
-sudo apt-get install -y python-numpy python-scipy
-
-# (OpenCV 2.4)
-sudo apt-get install -y libopencv-dev
-sudo pip install --upgrade pip
-sudo pip install --upgrade virtualenv
-sudo pip install virtualenvwrapper
-
+# Change this line if you cloned the course repository someplace else
+export COURSE_REPO=~/course-repo
 cd ~/
 
+# TODO: Setup zsh
+
+# Installing virtualenv for installing and managing python packages
+# for the local user (you)
+# To learn more check out : http://docs.python-guide.org/en/latest/dev/virtualenvs/
+pip install virtualenv
+# Installing virtualenvwrapper to handel ENV vars
+pip install virtualenvwrapper
+mkdir ~/Envs
+export WORKON_HOME=~/Envs
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Make a virtualenv for this class
+mkvirtualenv deep-venv
+# This makes it so when you run 'workon deep-venv' the virtualenv is
+# started and you cd into this course's rep
+echo 'cd /home/$USER/course-repo' >> ~/Envs/deep-venv/bin/postactivate
+workon deep-venv
+# Note: to get out of a virtualenv run command deactivate
+
 # Get Caffe
+cd ~/
 git clone https://github.com/BVLC/caffe.git
-cp donuts/bin/caffe_Makefile.config caffe/Makefile.config
+cp $COURSE_REPO/bin/caffe_Makefile.config caffe/Makefile.config
 
 # Install python dependencies
 cd caffe/python
 for req in $(cat pip_freeze); do sudo pip install $req; done
+
+# Install Jupyter notebook app for in-browser coding
+pip install -r jupyter
 
 # Install caffe
 echo "export LD_LIBRARY_PATH=/usr/lib64/" >> ~/.bashrc
