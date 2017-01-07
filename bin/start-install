@@ -8,9 +8,9 @@ cd ~/
 # Installing virtualenv for installing and managing python packages
 # for the local user (you)
 # To learn more check out : http://docs.python-guide.org/en/latest/dev/virtualenvs/
-pip install virtualenv
-# Installing virtualenvwrapper to handel ENV vars
-pip install virtualenvwrapper
+# pip install virtualenv
+# # Installing virtualenvwrapper to handel ENV vars
+# pip install virtualenvwrapper
 mkdir ~/Envs
 export WORKON_HOME=~/Envs
 source /usr/bin/virtualenvwrapper.sh
