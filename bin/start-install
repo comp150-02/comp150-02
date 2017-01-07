@@ -23,6 +23,19 @@ echo 'cd /home/$USER/course-repo' >> ~/Envs/deep-venv/bin/postactivate
 workon deep-venv
 # Note: to get out of a virtualenv run command deactivate
 
+# Install python math and science packages
+pip install numpy 
+pip install scipy
+pip install matplotlib
+
+# Install Jupyter notebook app for in-browser coding
+pip install jupyter
+
+# Install other course python requirements
+cd $COURSE_REPO/bin
+pip install -r requirements.txt
+
+
 # Get Caffe
 cd ~/
 git clone https://github.com/BVLC/caffe.git
@@ -31,9 +44,6 @@ cp $COURSE_REPO/bin/caffe_Makefile.config caffe/Makefile.config
 # Install python dependencies
 cd caffe/python
 for req in $(cat pip_freeze); do sudo pip install $req; done
-
-# Install Jupyter notebook app for in-browser coding
-pip install -r jupyter
 
 # Install caffe
 echo "export LD_LIBRARY_PATH=/usr/lib64/" >> ~/.bashrc
