@@ -44,7 +44,7 @@ pip install -r requirements.txt
 # Get Caffe
 cd ~/
 git clone https://github.com/BVLC/caffe.git
-cp $COURSE_REPO/bin/caffe_Makefile.config caffe/Makefile.config
+cp $COURSE_REPO/bin/aws_caffe_Makefile.config ~/caffe/Makefile.config
 
 # Install python dependencies
 cd caffe/python
