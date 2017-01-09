@@ -10,8 +10,14 @@
 export COURSE_REPO=~/course-repo
 cd ~/
 
-mkdir ~/Envs
-echo "export WORKON_HOME=~/Envs" >> ~/.bashrc
+# Installing virtualenv for installing and managing python packages
+# for the local user (you)
+# To learn more check out : http://docs.python-guide.org/en/latest/dev/virtualenvs/
+sudo pip install virtualenv
+# # Installing virtualenvwrapper to handel ENV vars
+sudo pip install virtualenvwrapper
+mkdir ~/.virtualenvs
+echo "export WORKON_HOME=~/.virtualenvs" >> ~/.bashrc
 echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc
 source ~/.bashrc
 
@@ -40,10 +46,11 @@ pip install jupyter
 cd $COURSE_REPO/bin
 pip install -r requirements.txt
 
+
 # Get Caffe
 cd ~/
 git clone https://github.com/BVLC/caffe.git
-cp $COURSE_REPO/bin/aws_caffe_Makefile.config ~/caffe/Makefile.config
+cp $COURSE_REPO/bin/osx_caffe_Makefile.config ~/caffe/Makefile.config
 
 # Install python dependencies
 cd caffe/python
@@ -63,9 +70,10 @@ make distribute
 python -c "import caffe"
 
 # Install Tensorflow
-export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-0.12.1-cp27-none-linux_x86_64.whl
+export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.12.1-py2-none-any.whl
 
 pip install --upgrade $TF_BINARY_URL
 
 # check that everything works
 python -c "import tensorflow"
+
