@@ -8,9 +8,9 @@ cd ~/
 # Installing virtualenv for installing and managing python packages
 # for the local user (you)
 # To learn more check out : http://docs.python-guide.org/en/latest/dev/virtualenvs/
-pip install virtualenv
-# Installing virtualenvwrapper to handel ENV vars
-pip install virtualenvwrapper
+# pip install virtualenv
+# # Installing virtualenvwrapper to handel ENV vars
+# pip install virtualenvwrapper
 mkdir ~/Envs
 echo "export WORKON_HOME=~/Envs" >> ~/.bashrc
 echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc
@@ -28,6 +28,19 @@ deactivate
 workon deep-venv
 
 
+# Install python math and science packages
+pip install numpy 
+pip install scipy
+pip install matplotlib
+
+# Install Jupyter notebook app for in-browser coding
+pip install jupyter
+
+# Install other course python requirements
+cd $COURSE_REPO/bin
+pip install -r requirements.txt
+
+
 # Get Caffe
 cd ~/
 git clone https://github.com/BVLC/caffe.git
@@ -38,9 +51,6 @@ cd caffe/python
 pip install numpy
 pip install scipy
 pip install -r requirements.txt
-
-# Install Jupyter notebook app for in-browser coding
-pip install jupyter
 
 # Install caffe
 echo "export LD_LIBRARY_PATH=/usr/lib64/" >> ~/.bashrc
