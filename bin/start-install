@@ -12,16 +12,21 @@ pip install virtualenv
 # Installing virtualenvwrapper to handel ENV vars
 pip install virtualenvwrapper
 mkdir ~/Envs
-export WORKON_HOME=~/Envs
-source /usr/bin/virtualenvwrapper.sh
+echo "export WORKON_HOME=~/Envs" >> ~/.bashrc
+echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc
+source ~/.bashrc
 
 # Make a virtualenv for this class
 mkvirtualenv deep-venv
 # This makes it so when you run 'workon deep-venv' the virtualenv is
 # started and you cd into this course's rep
-echo 'cd /home/$USER/course-repo' >> ~/Envs/deep-venv/bin/postactivate
-workon deep-venv
+echo 'cd $COURSE_REPO' >> ~/Envs/deep-venv/bin/postactivate
+
 # Note: to get out of a virtualenv run command deactivate
+# Checking that the virtual env works
+deactivate
+workon deep-venv
+
 
 # Get Caffe
 cd ~/
@@ -30,10 +35,12 @@ cp $COURSE_REPO/bin/caffe_Makefile.config caffe/Makefile.config
 
 # Install python dependencies
 cd caffe/python
-for req in $(cat pip_freeze); do sudo pip install $req; done
+pip install numpy
+pip install scipy
+pip install -r requirements.txt
 
 # Install Jupyter notebook app for in-browser coding
-pip install -r jupyter
+pip install jupyter
 
 # Install caffe
 echo "export LD_LIBRARY_PATH=/usr/lib64/" >> ~/.bashrc
