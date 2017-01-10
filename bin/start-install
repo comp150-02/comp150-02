@@ -7,7 +7,7 @@
 ########################################################################
 
 # Change this line if you cloned the course repository someplace else
-export COURSE_REPO=~/course-repo
+export COURSE_REPO=~/comp150-02
 cd ~/
 
 mkdir ~/Envs
