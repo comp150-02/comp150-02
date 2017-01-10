@@ -43,38 +43,5 @@ pip install sklearn
 # Install Jupyter notebook app for in-browser coding
 pip install jupyter
 
-# Install other course python requirements
-cd $COURSE_REPO/bin
-pip install -r requirements.txt
-
-
-# Get Caffe
-cd ~/
-git clone https://github.com/BVLC/caffe.git
-cp $COURSE_REPO/bin/osx_caffe_Makefile.config ~/caffe/Makefile.config
-
-# Install python dependencies
-cd caffe/python
-pip install -r requirements.txt
-
-# Install caffe
-echo "export LD_LIBRARY_PATH=/usr/lib64/" >> ~/.bashrc
-echo "export PYTHONPATH=~/caffe/python:$PYTHONPATH" >> ~/.bashrc
-source ~/.bashrc
-cd ..
-make all
-make test
-make runtest
-make distribute
-
-# check that everything works
-python -c "import caffe"
-
-# Install Tensorflow
-export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.12.1-py2-none-any.whl
-
-pip install --upgrade $TF_BINARY_URL
-
-# check that everything works
-python -c "import tensorflow"
-
+# Start the notebook!
+jupyter notebook
