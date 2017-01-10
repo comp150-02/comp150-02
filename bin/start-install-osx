@@ -32,8 +32,9 @@ echo 'cd $COURSE_REPO' >> ~/Envs/deep-venv/bin/postactivate
 deactivate
 workon deep-venv
 
-
 # Install python math and science packages
+pip install --upgrade pip
+pip install --upgrade setuptools
 pip install numpy 
 pip install scipy
 pip install matplotlib
