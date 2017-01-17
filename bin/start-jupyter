@@ -7,7 +7,7 @@
 ########################################################################
 
 # Change this line if you cloned the course repository someplace else
-export COURSE_REPO=~/comp150-02
+export COURSE_REPO=~/comp150dl
 cd ~/
 
 # Installing virtualenv for installing and managing python packages
@@ -17,9 +17,9 @@ sudo pip install virtualenv
 # # Installing virtualenvwrapper to handel ENV vars
 sudo pip install virtualenvwrapper
 mkdir ~/Envs
-echo "export WORKON_HOME=~/Envs" >> ~/.bashrc
-echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc
-source ~/.bashrc
+echo "export WORKON_HOME=~/Envs" >> ~/.profile
+echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.profile
+source ~/.profile
 
 # Make a virtualenv for this class
 mkvirtualenv deep-venv

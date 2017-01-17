@@ -7,7 +7,7 @@
 ########################################################################
 
 # Change this line if you cloned the course repository someplace else
-export COURSE_REPO=~/comp150-02
+export COURSE_REPO=~/comp150dl
 cd ~/
 
 # Installing virtualenv for installing and managing python packages
@@ -17,9 +17,9 @@ sudo pip install virtualenv
 # # Installing virtualenvwrapper to handel ENV vars
 sudo pip install virtualenvwrapper
 mkdir ~/Envs
-echo "export WORKON_HOME=~/Envs" >> ~/.bashrc
-echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc
-source ~/.bashrc
+echo "export WORKON_HOME=~/Envs" >> ~/.profile
+echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.profile
+source ~/.profile
 
 # Make a virtualenv for this class
 mkvirtualenv deep-venv
@@ -58,9 +58,9 @@ cd caffe/python
 pip install -r requirements.txt
 
 # Install caffe
-echo "export LD_LIBRARY_PATH=/usr/lib64/" >> ~/.bashrc
-echo "export PYTHONPATH=~/caffe/python:$PYTHONPATH" >> ~/.bashrc
-source ~/.bashrc
+echo "export LD_LIBRARY_PATH=/usr/lib64/" >> ~/.profile
+echo "export PYTHONPATH=~/caffe/python:$PYTHONPATH" >> ~/.profile
+source ~/.profile
 cd ..
 make all
 make test
@@ -77,4 +77,14 @@ pip install --upgrade $TF_BINARY_URL
 
 # check that everything works
 python -c "import tensorflow"
+
+# installing Torch
+cd ~/
+git clone https://github.com/torch/distro.git ~/torch --recursive
+cd ~/torch
+bash install-deps
+./install.sh
+echo "export PATH=$HOME/torch/install/bin:$PATH" >> ~/.profile
+echo "export LD_LIBRARY_PATH=$HOME/torch/install/lib:$LD_LIBRARY_PATH" >> ~/.profile
+source ~/.profile
 
