@@ -1,2 +1,2 @@
-# course-repo
-Repository containing reference code and skeleton code for assignments in Comp 150-02
+# Set Up for COMP 150DL
+Repository supporting Tufts COMP 150DL
