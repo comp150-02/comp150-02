@@ -2,8 +2,8 @@
 
 ########################################################################
 # This script creates a virtual env and installs all python packages   #
-# required in this course. The Caffe and Tensorflow libraries are also #
-# installed for use in the final project.                              #
+# required in this course. The Caffe, Tensorflow,and Torch libraries   #
+# are also installed for use in the final project.                     #
 ########################################################################
 
 # Change this line if you cloned the course repository someplace else
